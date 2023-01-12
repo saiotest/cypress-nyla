@@ -1,0 +1,19 @@
+{
+  "name": "cypress-nyla",
+  "version": "1.0.0",
+  "description": "cypress challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "keywords": [
+    "cypress",
+    "pageobjectmodel",
+    "e-commerce"
+  ],
+  "author": "Elyer Maldonado",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.3.0"
+  }
+}
