@@ -4,7 +4,8 @@
   "description": "cypress challenge",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress open"
+    "test": "npx cypress open",
+    "file": "npx cypress run --browser chrome --spec"
   },
   "keywords": [
     "cypress",
@@ -13,7 +14,8 @@
   ],
   "author": "Elyer Maldonado",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
-    "cypress": "^12.3.0"
+    "cypress": "12.3.0"
   }
 }
