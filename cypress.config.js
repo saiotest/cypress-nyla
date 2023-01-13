@@ -1,12 +1,13 @@
 import { defineConfig } from 'cypress'
 
 export default defineConfig({
-	projectId: '',
-	viewportWidth: 1920,
-	viewportHeight: 1080,
+	projectId: '211qjb',
 	watchForFileChanges: false,
 	chromeWebSecurity: false,
-	reporter: 'mochawesome',
+	reporter: 'cypress-multi-reporters',
+	reporterOptions: {
+		configFile: 'jsconfig.json',
+	},
 	retries: 0,
 	video: true,
 	e2e: {

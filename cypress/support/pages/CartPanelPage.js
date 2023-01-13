@@ -1,7 +1,7 @@
 class CartPanel{
     
     get = {
-
+        CartAccess: ()=> cy.get('[data-nyla="header"]').contains('Cart'),
         cartPanel: ()=> cy.get('[data-nyla="cart"]'),
         cartSection: {
             header: ()=> cy.get('[data-nyla="cart_section"].header'),
@@ -17,17 +17,32 @@ class CartPanel{
                     shade: ()=> cy.get('[data-nyla="typography-cb"]').eq(1), // The Shade Name (e.g. Dominio Black)
                     unitPrice: ()=> cy.get('[data-nyla="typography-cb"]').eq(2), // The Item Unit Price (e.g. $295)
                 },
-                itemQuantityBox: ()=> cy.get('[data-nyla="quantity-box-cb"] span'), // string: Quantity of the Added item (e.g. 2)
+                itemQuantityNum: ()=> cy.get('[data-nyla="quantity-box-cb"] span'), // string: Quantity of the Added item (e.g. 2)
                 itemQuantityPlusButton: ()=> cy.get('[data-nyla="signbox-plus"]'), // Button for plus items
                 itemQuantityMinusButton: ()=> cy.get('[data-nyla="signbox-minus"]'), // Button for Minus items
         
         checkoutButton: ()=> cy.get('[data-nyla="cart"] button[data-nyla="checkout-cta"]'),
     }
 
-    containsShadeName(text){
-        this.get.cartItems().within((cart)=>{
-            cy.contains(text)
-        })
+    // These Actions must be performed inside a Cart Item:
+    clickPlusButton(qty){
+        function clickOnPlusButton(){
+            this.get.itemQuantityPlusButton().click()
+        }
+        for(let i=0; i<qty; i++) {
+            clickOnPlusButton()
+        }
+    }
+    clickMinusButton(qty){
+        function clickOnMinusButton(){
+            this.get.itemQuantityMinusButton().click()
+        }
+        for(let i=0; i<qty; i++) {
+            clickOnMinusButton()
+        }
+    }
+    clickCheckoutButton(){
+        this.get.checkoutButton().click()
     }
 
 }

@@ -7,18 +7,31 @@ class ProductDetailPage{
         // contentContainer: ()=> cy.get()
         // productDescription: ()=> cy.get()
         // writeReview: ()=> cy.get()
-        shadeLabel: ()=> cy.get('[data-nyla="options"] span'),
+        shadeLabel: ()=> cy.get('[data-nyla="options"] span').invoke('text'),
 
-        itemQuantityBox: ()=> cy.get('[data-nyla="quantity-box-cb"] span'), // String: Value of the Quantity Selection
+        itemQuantityNum: ()=> cy.get('[data-nyla="quantity-box-cb"] span').invoke('text'), // String: Value of the Quantity Selection
         itemQuantityPlusButton: ()=> cy.get('[data-nyla="signbox-plus"]'), // Button for plus items
         itemQuantityMinusButton: ()=> cy.get('[data-nyla="signbox-minus"]'), // Button for Minus items
 
-        AddToCartButton: ()=> cy.get('[data-nyla="add-to-cart-cb"]'), // Button to Add item to Cart
-        AddToCartPrice: ()=> cy.contains('Add to cart').text(), //Text of the Price of the selected item
+        AddToCartButton: ()=> cy.get('button[data-nyla="add-to-cart-cb"]').first(), // Button to Add item to Cart
+        AddToCartLabel: ()=> cy.get('button[data-nyla="add-to-cart-cb"]').invoke('text'), // Button to Add item to Cart
     }
 
-    clickPlusButton(){
-        this.get.itemQuantityPlusButton().click()
+    clickPlusButton(qty){
+        function clickOnPlusButton(){
+            this.get.itemQuantityPlusButton().click()
+        }
+        for(let i=0; i<qty; i++) {
+            clickOnPlusButton()
+        }
+    }
+    clickMinusButton(qty){
+        function clickOnMinusButton(){
+            this.get.itemQuantityMinusButton().click()
+        }
+        for(let i=0; i<qty; i++) {
+            clickOnMinusButton()
+        }
     }
 
     clickAddToCart(){
