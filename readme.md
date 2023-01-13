@@ -1,3 +1,4 @@
+[![Nyla](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/simple/211qjb&style=flat&logo=cypress)](https://cloud.cypress.io/projects/211qjb/runs)
 # 🧪Testing Automation - Cypress 12👨🏻‍🚀
 
 # TEST PLAN:
