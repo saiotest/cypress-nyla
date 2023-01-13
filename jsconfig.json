@@ -6,13 +6,7 @@
 			"@pages/*": ["./cypress/support/pages/*"]
 		}
 	},
-	"reporterEnabled": "spec, mocha-junit-reporter, mochawesome",
-	"mochaJunitReporterReporterOptions": {
-		"mochaFile": "reports/test-results.xml",
-		"toConsole": false,
-		"outputs": true,
-		"testCaseSwitchClassnameAndName": true
-	},
+	"reporterEnabled": "spec, mochawesome",
 	"mochawesomeReporterReporterOptions": {
 		"mochaFile": "mochawesome.json"
 	}

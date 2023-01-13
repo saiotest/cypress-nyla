@@ -16,19 +16,7 @@ Just 1 Test Case of this Coverage is taken into the Automation Framework Cypress
 
 ### **Naming Conventions defined for Test Cases:**
 
-{{
-
-{TestPlanID}
-
-\-TC
-
-{n}
-
-: Check
-
-{Test Case Scenario description}
-
-}}  
+`{TestPlanID}-TC{n}: Check {Test Case Scenario description}`  
 **The naming ‘Check’ word will be used as a reference for TC, as ‘Validate’, 'Verify', etc.**  
 _Example: Nyla-38-TC2: Check that the user can login successfully by using the correct credentials_
 
