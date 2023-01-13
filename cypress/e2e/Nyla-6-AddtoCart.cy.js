@@ -69,7 +69,6 @@ describe('[Nyla-6] Story: As a user I want to Add a Product to the Shopping Cart
 			cy.log(`The Item TotalPurchase Price is: ${itemTotalPrice}`)
 			expect(SubTotal.text()).equal(itemTotalPrice)
 		})
-		cy.screenshot()
 	})
 })
 
