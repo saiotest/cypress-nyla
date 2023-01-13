@@ -13,7 +13,7 @@ describe('[Nyla-6] Story: As a user I want to Add a Product to the Shopping Cart
 		//Step 1: Click on the ‘Add to Cart’ button.
 		Product.get.shadeSelection().then((shade)=>{
 			itemShade = shade.text()
-			x= itemShade.replace("Shade: ","")
+			x = itemShade.replace("Shade: ","")
 			cy.log(x)
 		})
 		Product.clickAddToCart()

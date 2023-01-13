@@ -7,9 +7,9 @@ class ProductDetailPage{
         // contentContainer: ()=> cy.get()
         // productDescription: ()=> cy.get()
         // writeReview: ()=> cy.get()
-        shadeSelection: ()=> cy.get('[data-nyla="options"] span'),
+        shadeLabel: ()=> cy.get('[data-nyla="options"] span'),
 
-        itemQuantityBox: ()=> cy.get('[data-nyla="quantity-box-cb"] span'), // Value of the Quantity Selection
+        itemQuantityBox: ()=> cy.get('[data-nyla="quantity-box-cb"] span'), // String: Value of the Quantity Selection
         itemQuantityPlusButton: ()=> cy.get('[data-nyla="signbox-plus"]'), // Button for plus items
         itemQuantityMinusButton: ()=> cy.get('[data-nyla="signbox-minus"]'), // Button for Minus items
 
