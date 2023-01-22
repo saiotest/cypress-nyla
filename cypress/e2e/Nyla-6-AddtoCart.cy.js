@@ -20,26 +20,26 @@ describe('[Nyla-6] Story: As a user I want to Add a Product to the Shopping Cart
 		// its Shade:
 		let itemShade
 		Product.get.shadeLabel().then((shade)=>{
-			itemShade = shade.replace("Shade:  ","")
+			itemShade = shade.text().replace("Shade:","").trim()
 			cy.log(`Actual Shade: ${itemShade}`)
 		})
 		
 		//its Price:
 		let itemPrice
 		Product.get.AddToCartLabel().then((label)=>{
-			itemPrice = label.replace(" | Add to cart","")
-			itemPrice = itemPrice.replace("$","")
+			itemPrice = label.replace(" | Add to cart","").trim().replace("$","")
 			cy.log(`Actual Price: ${itemPrice}`)
 		})
 		
 		//its QuantityBox:
 		let itemQuantity
 		Product.get.itemQuantityNum().then((qty)=>{
-			itemQuantity = qty
+			itemQuantity = qty.trim()
 			cy.log(`Actual Quantity: ${itemQuantity}`)
 		})
 
 		//Step 1: Click on the ‘Add to Cart’ button without adding more items.
+		cy.screenshot()
 		Product.clickAddToCart()
 
 		//Should open the Cart Panel:
@@ -57,17 +57,23 @@ describe('[Nyla-6] Story: As a user I want to Add a Product to the Shopping Cart
 			})
 		})
 		// SubTotal should be equal to (unitPrice x Quantity) TotalPrice from one item in this case:
-		cy.wait(2000)
+		cy.wait(3000)
 		Cart.get.cartSection.footer().contains('$').then((SubTotal)=>{
 			const Price = parseInt(itemPrice)
 			cy.log(`unitPrice is: ${itemPrice}`)
+
 			const Qty = parseInt(itemQuantity)
 			cy.log(`Quantity is: ${itemQuantity}`)
+
 			const total = Price * Qty
 			cy.log(`The Multiplication is: ${total}`)
+
 			const itemTotalPrice = "$" + total
 			cy.log(`The Item TotalPurchase Price is: ${itemTotalPrice}`)
+			
 			expect(SubTotal.text()).equal(itemTotalPrice)
+
+			cy.screenshot()
 		})
 	})
 })

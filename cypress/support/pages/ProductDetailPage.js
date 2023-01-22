@@ -7,7 +7,7 @@ class ProductDetailPage{
         // contentContainer: ()=> cy.get()
         // productDescription: ()=> cy.get()
         // writeReview: ()=> cy.get()
-        shadeLabel: ()=> cy.get('[data-nyla="options"] span').invoke('text'),
+        shadeLabel: ()=> cy.get('[data-nyla="options"]>div>span'),
 
         itemQuantityNum: ()=> cy.get('[data-nyla="quantity-box-cb"] span').invoke('text'), // String: Value of the Quantity Selection
         itemQuantityPlusButton: ()=> cy.get('[data-nyla="signbox-plus"]'), // Button for plus items
