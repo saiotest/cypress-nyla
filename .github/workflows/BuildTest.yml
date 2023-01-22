@@ -1,7 +1,7 @@
 name: 🤖CI run (BUILD) Test Suite Execution⚡
 run-name: ${{github.actor}}👨🏻‍🔬 run Test Suite in ${{github.ref_name}}
 
-on: # This Run is a template. The correct "Run On" should be: Any except QA and Main (cypex)
+on:
   [push]
 
 jobs:
@@ -26,9 +26,9 @@ jobs:
               uses: cypress-io/github-action@v4
               with:
                   browser: chrome
-                  command: | #EDITAR AQUÍ EL ARCHIVO SUITE A EJECUTAR:
+                  command: | 
                     npm run file cypress/e2e/Nyla-6-AddtoCart.cy.js
-                  record: true #HABILITAR A TRUE* cuando se use un Proyecto.
+                  record: true 
               env:
                   # pass the Dashboard record key as an environment variable
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
@@ -42,4 +42,18 @@ jobs:
               with:
                   name: mochaTest-report
                   path: mochawesome-report
+
+            - name: 🎥Upload Screenshots from Test Execution
+              if: always()
+              uses: actions/upload-artifact@v3
+              with:
+                  name: tests-screenshots
+                  path: cypress/screenshots
+
+            - name: 🎥Upload Full Video from Test Execution
+              if: always()
+              uses: actions/upload-artifact@v3
+              with:
+                  name: full-test-execution-video
+                  path: cypress/videos
 
